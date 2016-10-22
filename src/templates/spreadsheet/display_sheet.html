@@ -13,13 +13,6 @@
                 </th>
                 {% endfor %}
             </tr>
-            <tr>
-                {% for column in columns %}
-                <th>{{ column.name }}</th>
-                {% endfor %}
-                <th></th>
-                <th></th>
-            </tr>
             {% for row_num, row in rows %}
             <tr>
                 {% for cell in row %}

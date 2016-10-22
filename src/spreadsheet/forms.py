@@ -2,29 +2,24 @@ from django import forms
 from spreadsheet.models import SpreadSheetColumn, SpreadSheet2
 from datetime import timedelta
 from django.utils import timezone
-import datetime
-##class SpreadSheetFormtest(forms.ModelForm):
-##    num=intfield
-##    minvalue
-##    def clean_number(self):
-##        old_no=self.cleaned_data.get("number")
-##        if old_value<1:
-##            raise validation error
-##        else:
-##            return clean_data
+
 
 class FileForm(forms.Form):
     csv_file = forms.FileField()
+
     def clean_csv_file(self):
-        data=self.cleaned_data.get('csv_file')
-        k=str(data.name)
-        k=k.split('.')
+        data = self.cleaned_data.get('csv_file')
+        k = str(data.name)
+        k = k.split('.')
         if k[1] != 'csv':
             raise forms.ValidationError("Please Upload a CSV file")
         return data
-    
+
+
 class NoOfColumnsForm(forms.Form):
     no_of_columns = forms.IntegerField(min_value=1)
+
+
 class NoOfRowsForm(forms.Form):
     no_of_rows = forms.IntegerField(min_value=1)
     
@@ -34,7 +29,6 @@ class SpreadSheetForm(forms.ModelForm):
         model = SpreadSheet2
         fields = ['name']
         
-
 
 class ColumnForm(forms.ModelForm):
     class Meta:

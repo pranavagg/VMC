@@ -17,11 +17,11 @@ class FileForm(forms.Form):
 
 
 class NoOfColumnsForm(forms.Form):
-    no_of_columns = forms.IntegerField(min_value=1)
+    no_of_columns = forms.IntegerField(min_value=1,widget=forms.TextInput(attrs={'class': "form-control"}))
 
 
 class NoOfRowsForm(forms.Form):
-    no_of_rows = forms.IntegerField(min_value=1)
+    no_of_rows = forms.IntegerField(min_value=1,widget=forms.TextInput(attrs={'class': "form-control"}))
     
     
 class SpreadSheetForm(forms.ModelForm):
@@ -49,7 +49,7 @@ class RowForm(forms.Form):
 
     @staticmethod
     def get_field(label, disabled):
-        return forms.CharField(max_length=1024, label=label, required=False, disabled=disabled)
+        return forms.CharField(max_length=1024, label=label, required=False, disabled=disabled,widget=forms.TextInput(attrs={'class': "form-control"}))
 
     def __init__(self, *args, **kwargs):
         columns = kwargs.pop('columns', [])

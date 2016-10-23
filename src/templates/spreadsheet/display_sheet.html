@@ -79,44 +79,59 @@
 
 
 
-<h3 class="text-center">Add Column</h3>
+<!-- <h3 class="text-center">Add Column</h3>
 <br>
-<br>
-<form class="text-center" method="post" action="{% url 'spreadsheet:add_column' sheet.id %}">
+<form class="text-center" class="form-inline" method="post" action="{% url 'spreadsheet:add_column' sheet.id %}">
     {% csrf_token %} 
-    {{ add_column_form.as_p }}
+    {{ add_column_form.as_table }}
+    <br>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-
+<br>
+<br>
+<br> -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6">
 <center><h3 class="text-center">Add Multiple Column</h3>
-<form method="post" action="{% url 'spreadsheet:add_multiple_columns' sheet.id %}">
+<br>
+<form method="post" class="form-inline" action="{% url 'spreadsheet:add_multiple_columns' sheet.id %}">
     {% csrf_token %} 
-    {{add_multiple_columns.as_p}}
+    {{add_multiple_columns.as_table}}
+    <br>
     <input type="submit" class="btn btn-primary" value="Submit" />
 </form></center>
 
+</div>
+
+<div class="col-md-6">
 <center><h3 class="text-center">Add Multiple Row</h3>
-<form method="post" action="{% url 'spreadsheet:add_multiple_rows' sheet.id %}">
+<br>
+<form method="post" class="form-inline" action="{% url 'spreadsheet:add_multiple_rows' sheet.id %}">
     {% csrf_token %} 
-    {{add_multiple_rows.as_p}}
+    {{add_multiple_rows.as_table}}
+    <br>
     <input type="submit" class="btn btn-primary" value="Submit" />
 </form></center>
+</div>
+</div>
+</div>
 <br>
 <br>
 <br>
+
 <div class="container-fluid" style="margin-left:20px;">
-    <div class="row">
         <h3>Add Row</h3>
-        <form method="post" action="{% url 'spreadsheet:add_row' sheet.id %}">
-            <div class="col-lg-1">
-                {% csrf_token %} 
-                {{ add_row_form.as_p }}
-                <button type="submit" class="btn btn-primary btn">Submit</button>
-            </div>
+        <br>
+        <form method="post" class="form-inline" action="{% url 'spreadsheet:add_row' sheet.id %}">
+                {% csrf_token %}
+                
+                {{add_row_form.as_p}}
+
+                <br>
+                <button type="submit" class="btn btn-primary btn">Submit</button>          
         </form>
     </div>
-</div>
 <br>
 <br>
 <br>
